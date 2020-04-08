@@ -1,0 +1,15 @@
+<div class="todo-app">
+    <form class="form-group" (ngSubmit)="onSubmit()">
+        <div>
+            <input class="todo-input" type="text" name='title' [(ngModel)]="todo.title" placeholder="Add todo"
+                (keyup.enter)="onSubmit()"/>
+        </div>
+        <button class="btn" type="submit" value="Submit">Add</button>
+    </form>
+    <ul>
+        <li class="todo-item" *ngFor="let todo of todos | async">
+            {{ todo.title }}
+            <button class="btn btn-red" (click)='deleteTodo(todo)'>del</button>
+        </li>
+    </ul>
+</div>
